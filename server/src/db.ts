@@ -1,5 +1,5 @@
 import pgPromise from "pg-promise";
-import { env } from "./utils/env";
+import { env } from "./utils/env.js";
 
 const { DB_USER, DB_PASSWORD, DB_URL, DB_PORT_NUMBER, DB_NAME } = env;
 
@@ -25,3 +25,7 @@ async function setupDB () {
     throw new Error("Issues with the database setup")
   }
 }
+
+setupDB()
+
+export { db }

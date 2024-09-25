@@ -1,12 +1,10 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import express from "express";
 import "express-async-errors";
 import morgan from "morgan";
 import cors from "cors";
+import { env } from "./utils/env.js";
 
-const { API_PORT_NUMBER, CLIENT_URL } = process.env;
+const { API_PORT_NUMBER, CLIENT_URL } = env;
 
 const server = express();
 
@@ -20,7 +18,7 @@ server.use(
 );
 
 server.get("/test", (req, res) => {
-  res.status(200).json({ msg: "is it working now?" });
+  res.status(200).json({ msg: "it seems to be working" });
 });
 
 server.listen(API_PORT_NUMBER, () => {
